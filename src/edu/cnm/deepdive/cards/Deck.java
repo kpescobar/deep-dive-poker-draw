@@ -12,6 +12,7 @@ import java.util.Random;
 
 /**
  * Single deck, 52 cards.
+ * 
  * @author Kelly Escobar
  *
  */
@@ -21,7 +22,8 @@ public class Deck {
   private boolean shuffled = false;
   private Random rng = null;
   private int position = 0;
-  
+ 
+  /** Assigns suit and rank to cards. */
   public Deck() {
     super();
     cards = new ArrayList<>();
@@ -33,6 +35,11 @@ public class Deck {
     }
   }
   
+  /**
+   * Uses secure shuffle method.
+   *  
+   * @throws NoSuchAlgorithmException
+   */
   public void shuffle() 
       throws NoSuchAlgorithmException {
     if (rng == null) {
@@ -42,16 +49,33 @@ public class Deck {
     shuffled = true;
     position = 0;
   }
-  
+  /**
+   * Creates an array with each card in the deck in the current order.
+   * 
+   * @return
+   */
   public Card[] toArray() {
     return cards.toArray(new Card[] {});
   }
-  
+ 
+  /**
+   * Retains position of each card in the deck (before or after a secure shuffle).
+   * 
+   * @return
+   * @throws IndexOutOfBoundsException No cards are left in the deck.
+   */
   public Card draw() 
       throws IndexOutOfBoundsException {
     return cards.get(position++);
   }
   
+  /**
+   * Draws and returns the top set number of cards from the deck.
+   * 
+   * @param numCards
+   * @return
+   * @throws IndexOutOfBoundsException
+   */
   public Card[] draw(int numCards) 
       throws IndexOutOfBoundsException {
     Card[] hand = new Card[numCards];

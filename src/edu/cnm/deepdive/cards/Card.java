@@ -12,11 +12,17 @@ public class Card implements Comparable<Card> {
   public final Suit suit;
   public final Rank rank;
 
+  /**
+   * 
+   * @param suit Suit of new Card object.
+   * @param rank Rank of new Card object.
+   */
   public Card(Suit suit, Rank rank) {
     this.suit = suit;
     this.rank = rank;
   }
 
+  @Override
   public String toString() {
     return rank.toString() + suit.toString();
   }
@@ -30,12 +36,19 @@ public class Card implements Comparable<Card> {
     return this.rank.compareTo(card.rank);
   }
 
+  /**
+   * Sets the value of 4 card suits.
+   * 
+   * @author Kelly Escobar
+   *
+   */
   public enum Suit {
     CLUBS, 
     DIAMONDS, 
     HEARTS, 
     SPADES;
 
+    @Override
     public String toString() {
       String value = null;
       switch (this) {
@@ -56,6 +69,12 @@ public class Card implements Comparable<Card> {
     }
   }
 
+  /**
+   * Assigns value and return name to each card.
+   * 
+   * @author Kelly Escobar
+   *
+   */
   public enum Rank {
     ACE(1, 'A'), 
     TWO(2, '2'), 
@@ -66,11 +85,19 @@ public class Card implements Comparable<Card> {
     SEVEN(7,'7'), 
     EIGHT(8,'8'), 
     NINE(9, '9'), 
-    TEN(10, 'T'), 
+    TEN(10, 'T') {
+      @Override
+      public String toString() {
+        return "10";
+      }
+    }, 
     JACK(10, 'J'), 
     QUEEN(10, 'Q'), 
     KING(10, 'K');
 
+    /**
+     * Sets value and symbol allowed for each card.
+     */
     public final int value;
     public final char symbol;
 
@@ -78,22 +105,17 @@ public class Card implements Comparable<Card> {
       this.value = value;
       this.symbol = symbol;
     }
-
+    
+    @Override
     public String toString() {
-      switch (this) {
-        case TEN:
-          return "10";
-        default:
-          return new StringBuilder().append(symbol).toString();
+      return new StringBuilder().append(symbol).toString();
       }
-
-
 
     }
 
   }
 
 
-}
+
 
 

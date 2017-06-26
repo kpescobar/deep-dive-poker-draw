@@ -4,11 +4,16 @@
 package edu.cnm.deepdive.cards;
 
 /**
+ * Creates a single card instance.
+ * 
  * @author Kelly Escobar
  *
  */
 public class Card implements Comparable<Card> {
 
+  /**
+   * Represents suit and rank of a card.
+   */
   public final Suit suit;
   public final Rank rank;
 

@@ -1,2 +1,2 @@
 # deep-dive-poker-draw
-Deals 5 hands of 5 cards.
+Deals 2 hands of 5 card draw and compares the two for the better hand.
